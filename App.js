@@ -18,19 +18,11 @@ import DetailMua2 from './src/page/DetailMua2';
 import DetailMua3 from './src/page/DetailMua3';
 import DetailDekorasi1 from './src/page/DetailDekorasi1'
 import DetailDekorasi2 from './src/page/DetailDekorasi2';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
-
-
-const cache = new InMemoryCache()
-const client = new ApolloClient({
-  uri: 'http://192.168.1.27:4000/graphql',
-  cache
-})
 
 const Stack = createNativeStackNavigator();
+
 const App = () => {
   return (
-    <ApolloProvider client={client}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
@@ -52,7 +44,6 @@ const App = () => {
           <Stack.Screen name="DetailDekorasi2" component={DetailDekorasi2} options={{ title: 'Detail' }} />
         </Stack.Navigator>
       </NavigationContainer>
-    </ApolloProvider>
   );
 }
 
